@@ -30,13 +30,14 @@
             '$name','$email','$username','$password')";
         $result = mysqli_query($conn, $query);
 
-        if ($result) {
-            echo "Connection is ok";
-        }
-        else {
-            echo "Not Connected";
-        }
+        // if ($result) {
+        //     echo "Connection is ok";
+        // }
+        // else {
+        //     echo "Not Connected";
+        // }
     }
+    // header("Location: index.php")
 
 
     ?>
