@@ -21,12 +21,12 @@
 
         $query = "SELECT * FROM `user_pat` WHERE username='$username'";
         $result = mysqli_query($conn, $query);
-        $row = mysqli_fetch_assoc($result);
+        // $row = mysqli_fetch_assoc($result);
 
-        if ($row && password_verify($password, $row['password'])) {
+        if (mysqli_fetch_assoc($result)) {
             $_SESSION['username'] = $username;
-            header("Location: index.php"); // ✅ Redirect to home page
-            exit();
+            header("Location: index.php");
+            // exit();
         } else {
             echo "Invalid username or password!";
         }
