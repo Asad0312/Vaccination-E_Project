@@ -376,10 +376,10 @@ http://www.tooplate.com/view/2098-health
                </div>
           </div>
                <?php
-     include "dbConnection.php";
+     include "./dbConnection.php";
 
      if(isset($_POST['submit'])) {
-          $id = $_POST["id"];
+          // $id = $_POST["id"];
           $name = $_POST["name"];
           $email = $_POST["email"];
           $date = $_POST["date"];
@@ -392,12 +392,12 @@ http://www.tooplate.com/view/2098-health
      $query = "INSERT INTO `apointment`(`ID` , `Name`, `Email`, `Date`, `option` , `Phone`) VALUES ('' , '$name','$email','$date' , '$option' ,'$number')";
      $result = mysqli_query($conn,$query);
 
-          if ($result) {
-               echo "Ok";
-          }
-          else {
-               echo "not ok";
-          }
+          // if ($result) {
+          //      echo "Ok";
+          // }
+          // else {
+          //      echo "not ok";
+          // }
 
      
      }

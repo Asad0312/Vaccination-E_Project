@@ -14,25 +14,28 @@
         <th>ID</th>
         <th>Name</th>
         <th>Email</th>
-        <th>Phone</th>
         <th>Date</th>
-        <th>Message</th>
+        <th>Option</th>
+        <th>Phone</th>
     </tr>
 
     <?php
     include "../dbConnection.php";
 
-    $query = "SELECT * FROM `appointment` ORDER BY id DESC";
-    $result = mysqli_query($conn, $query);
+    $query = "SELECT * FROM `apointment` ";
+    $resul = mysqli_query($conn,$query);
 
-    while ($row = mysqli_fetch_assoc($result)) {
+    foreach($resul as $row)
+    {
         echo "<tr>";
-        echo "<td>".$row['id']."</td>";
-        echo "<td>".$row['name']."</td>";
-        echo "<td>".$row['email']."</td>";
-        echo "<td>".$row['phone']."</td>";
-        echo "<td>".$row['date']."</td>";
-        echo "<td>".$row['message']."</td>";
+            echo "<td>$row[ID]</td>";
+            echo "<td>$row[Name]</td>";
+            echo "<td>$row[Email]</td>";
+            echo "<td>$row[Date]</td>";
+            echo "<td>$row[Option]</td>";
+            echo "<td>$row[Phone]</td>";
+            
+
         echo "</tr>";
     }
     ?>
