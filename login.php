@@ -1,15 +1,21 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Login</title>
+    <meta charset="UTF-8">
+    <title>Login | Health Center</title>
+    <link rel="stylesheet" href="./css/login.css">
 </head>
 <body>
-    <h2>Login Form</h2>
-    <form method="post">
-        <input type="text" name="username" placeholder="Enter Username" required><br><br>
-        <input type="password" name="password" placeholder="Enter Password" required><br><br>
-        <input type="submit" name="login" value="Login">
-    </form>
+
+    <div class="login-container">
+        <h2>Login</h2>
+        <form method="post">
+            <input type="text" name="username" placeholder="Enter Username" required>
+            <input type="password" name="password" placeholder="Enter Password" required>
+            <input type="submit" name="login" value="Login"><br><br>
+            <a href="./Register.php">Register</a>
+        </form>
+    </div>
 
     <?php
     session_start();
@@ -21,14 +27,13 @@
 
         $query = "SELECT * FROM `user_pat` WHERE username='$username'";
         $result = mysqli_query($conn, $query);
-        // $row = mysqli_fetch_assoc($result);
 
         if (mysqli_fetch_assoc($result)) {
             $_SESSION['username'] = $username;
             header("Location: index.php");
-            // exit();
+            exit();
         } else {
-            echo "Invalid username or password!";
+            echo "<p class='error'>Invalid username or password!</p>";
         }
     }
     ?>
